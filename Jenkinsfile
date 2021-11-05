@@ -4,6 +4,10 @@ pipeline {
     stage('Build') {
       steps {
         echo 'Build complited'
+        retry(count: 3) {
+          sh 'hgvu'
+        }
+
       }
     }
 
